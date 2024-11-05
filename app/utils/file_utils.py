@@ -27,3 +27,12 @@ def get_format_string(resolution: str, isAudio: bool) -> str:
         return "bestaudio"
     else:
         return f"bestvideo[height={resolution[:-1]}]+bestaudio/best"
+    
+    
+def remove_file(file_path: str):
+    """Remove the file from the server."""
+    try:
+        os.remove(file_path)
+        print(f"File {file_path} removed successfully.")
+    except OSError as e:
+        print(f"Error removing file {file_path}: {e}")
