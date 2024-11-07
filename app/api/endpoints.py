@@ -1,5 +1,6 @@
 import os
 from fastapi import APIRouter, HTTPException, BackgroundTasks
+from utils.file_utils import remove_file
 
 from fastapi.responses import FileResponse
 from models.videoModel import VideoDownloadOptions, PlaylistDownloadOptions
@@ -27,12 +28,3 @@ async def download_playlist_endpoint(background_tasks: BackgroundTasks, options:
     
     background_tasks.add_task(remove_file, zip_file_path)
     return FileResponse(path=zip_file_path, media_type='application/zip', filename='playlist_download.zip')
-
-
-def remove_file(file_path: str):
-    """Remove the file from the server."""
-    try:
-        os.remove(file_path)
-        print(f"File {file_path} removed successfully.")
-    except OSError as e:
-        print(f"Error removing file {file_path}: {e}")

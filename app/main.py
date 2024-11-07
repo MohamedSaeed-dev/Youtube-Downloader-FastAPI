@@ -1,13 +1,20 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from api.endpoints import router
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allows all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 # Include the API router
 app.include_router(router=router, prefix="/api")
 
-host = "localhost"
+host = "0.0.0.0"
 port = 9000
 
 @app.get("/")
