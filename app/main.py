@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
-from api.endpoints import router
+from app.api.endpoints import router
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
