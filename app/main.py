@@ -14,8 +14,8 @@ app.add_middleware(
 # Include the API router
 app.include_router(router=router, prefix="/api")
 
-# host = "0.0.0.0"
-# port = 9000
+host = "0.0.0.0"
+port = 9000
 
 # @app.get("/")
 # async def root():
