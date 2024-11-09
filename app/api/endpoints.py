@@ -1,10 +1,10 @@
 import os
 from fastapi import APIRouter, HTTPException, BackgroundTasks
-from utils.file_utils import remove_file
+from app.utils.file_utils import remove_file
 
 from fastapi.responses import FileResponse
-from models.videoModel import VideoDownloadOptions, PlaylistDownloadOptions
-from services.downloadService import download_video, download_playlist
+from app.models.videoModel import VideoDownloadOptions, PlaylistDownloadOptions
+from app.services.downloadService import download_video, download_playlist
 
 router = APIRouter()
 

@@ -1,9 +1,9 @@
 import os
 import zipfile
 import yt_dlp
-from models.videoModel import VideoDownloadOptions, PlaylistDownloadOptions
+from app.models.videoModel import VideoDownloadOptions, PlaylistDownloadOptions
 
-from utils.file_utils import DOWNLOAD_PATH, ensure_download_directory, get_format_string
+from app.utils.file_utils import DOWNLOAD_PATH, ensure_download_directory, get_format_string
 
 def download_video(options: VideoDownloadOptions, isAudio: bool) -> str:
     """Download a single video and return the file path."""
